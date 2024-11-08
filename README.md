@@ -1,4 +1,4 @@
-# dinosaurdle
+# Dinosaurdle
 A spin on the classic NYT game Wordle
 
 ## How to play
