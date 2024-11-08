@@ -9,8 +9,5 @@
   "devDependencies": {
     "docdash": "^2.0.1",
     "mocha": "^9.2.2"
-  },
-  "dependencies": {
-    "ramda": "^0.29.0"
   }
 }

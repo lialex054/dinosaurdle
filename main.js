@@ -1,5 +1,4 @@
 import Dinosaurdle from "./Dinosaurdle.js";
-import R from "./ramda.js";
 import {WORDS} from "./words.js";
 
 const openModalButtons = document.querySelectorAll("[data-modal-target]");
@@ -168,11 +167,11 @@ function drawBox(container, row, col, letter = ""){
 function drawGrid(container) {
     const grid = document.createElement("div");
     grid.className = "grid";
-    R.range(0, 6).forEach(function (i) {
-        R.range(0, 5).forEach(function (j) {
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 5; j++) {
             drawBox(grid, i, j);
-        });
-    });
+        }
+    }
     container.appendChild(grid);
 }
 
@@ -255,7 +254,7 @@ function revealWord(word){
 
 
 function colourReveal(row){
-    R.range(0,5).forEach(function(i){
+    for (let i = 0; i < 5; i++) {
         const box = document.getElementById(`box${row}${i}`);
         if (game_state.number_board[row][i] === 2){
             box.classList.add("right");
@@ -266,35 +265,35 @@ function colourReveal(row){
         if (game_state.number_board[row][i] === 0){
             box.classList.add("empty");
         }
-    });
+    }
 }
 
 function colourRevealAnimated(row){
     const animation_duration = 700; //ms
-    R.range(0,5).forEach(function(i){
+    for (let i = 0; i < 5; i++) {
         const box = document.getElementById(`box${row}${i}`);
-        setTimeout(function(){
+        setTimeout(function() {
             box.classList = ("box right");
-        }, ((i+1) * animation_duration) / 2);
+        }, ((i + 1) * animation_duration) / 2);
         box.classList.add("animated");
         box.style.animationDelay = `${(i * animation_duration) / 2}ms`;
-    });
+    }
 }
 
 function colourDefault(row){
-    R.range(0,5).forEach(function(i){
+    for (let i = 0; i < 5; i++) {
         const box = document.getElementById(`box${row}${i}`);
         box.classList = ("box default");
-    });
+    }
 }
 
 function updateGrid(){
-    R.range(0,game_state.word_board.length).forEach(function(i){
-        R.range(0,game_state.word_board[i].length).forEach(function(j){
+    for (let i = 0; i < game_state.word_board.length; i++) {
+        for (let j = 0; j < game_state.word_board[i].length; j++) {
             const box = document.getElementById(`box${i}${j}`);
             box.textContent = game_state.word_board[i][j];
-        });
-    });
+        }
+    }
 }
 
 function addLetter(letter){
@@ -335,9 +334,9 @@ function gameWon(){
         game_state.dinosaur_score = 0;
     }
     updateDinoProgressBar(game_state.dinosaur_score);
-    R.range(0,6).forEach(function(j){
+    for (let j = 0; j < 6; j++) {
         colourDefault(j);
-    });
+    }
     resetKeyboard();
     console.log(game_state.answer);
     updateGrid();
@@ -369,9 +368,9 @@ function goodGame(){
     game_state.score = 0;
     game_state.dinosaur_score = 0;
     game_state.wins = 0;
-    R.range(0,6).forEach(function(j){
+    for (let j = 0; j < 6; j++) {
         colourDefault(j);
-    });
+    }
     resetKeyboard();
     updateDinoProgressBar(game_state.dinosaur_score);
     updatePlayerProgressBar(game_state.score);
@@ -381,7 +380,7 @@ function goodGame(){
 }
 
 function keyboardColour(word_array,number_array){
-    R.range(0,5).forEach(function(i){
+    for (let i = 0; i < 5; i++) {
         let key = word_array[i];
         const button = document.getElementById(key);
         if (number_array[i] === 2){
@@ -406,7 +405,7 @@ function keyboardColour(word_array,number_array){
                 button.classList.add("empty")
             }
         }
-    })
+    }
 }
 
 function resetKeyboard(){
