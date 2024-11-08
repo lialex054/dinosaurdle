@@ -1,0 +1,322 @@
+html,
+body{
+    background:var(--default);;
+}
+@font-face {
+    font-family: "Dinosaur Font";
+    src: url("./assets/DinopiaRegular-mLrO9.otf");
+}
+
+:root{
+    --default:#1F2041;
+    --empty:#4B3F72;
+    --wrong:#c89c44;
+    --right:#52a35e;
+    --text:#C1F7DC;
+
+}
+
+.progress-bar {
+    width: 2.5vw;
+    border: 2px solid var(--text);
+    height: 55vh;
+    background-color: var(--default);
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.gifs{
+    width: clamp(10px,15vw,300px);
+    height: clamp(10px,15vw,300px);
+    border-radius: 20px;
+}
+.gifs.amongus{
+    transform: scaleX(-1);
+}
+
+.progress {
+    width: 2.5vw;
+    max-height: 55vh;
+    background-color: var(--right);
+    border-radius: 5px;
+}
+
+.top-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#game {
+    display: grid;
+    place-items: center;
+    width: 40%;
+    height: 55vh;
+}
+
+.grid{
+    display: grid;
+    grid-template-rows: repeat(6, auto);
+    grid-template-columns: repeat(5, auto);
+}
+
+.keyboard {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 30vh;
+}
+
+.keyboard .row {
+    width: 100vw;
+    align-self: center;
+}
+
+.text{
+    background-color: var(--empty);
+    border-radius: 20px;
+    font-size-adjust: 1;
+    font-family: "Dinosaur font";
+    color: var(--text);
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.vertical{
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+button{
+    background-color: var(--default);
+    border: 2px solid var(--text);
+    display: inline-block;
+    margin: .3rem;
+    font-size: clamp(1px,1.5vw,20px);
+    color: var(--text);
+    width: 3vw;
+    height: 7vh;
+    border-radius: .5rem;
+    font-weight: bold;
+}
+
+.button.instruction{
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    width: clamp(1px,8vw,500px);
+    font-size: clamp(1px, 1vw, 500px);
+}
+
+.button.API{
+    background-color: var(--text);
+    color: var(--empty);
+    position: fixed;
+    left: 20px;
+    top: 100px;
+    width: clamp(1px,8vw,500px);
+    font-size: clamp(1px, 0.9vw, 500px);
+}
+
+.button.close-button{
+    width: 20px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.button.big{
+    width: 7vw;
+    font-size: clamp(1px,2vw,20px);
+}
+
+.button.med{
+    width: 8vw;
+    font-size: clamp(1px,2vw,20px);
+}
+
+.button.wrong{
+    background-color: var(--wrong);
+}
+.button.right{
+    background-color: var(--right);
+}
+.button.empty{
+    background-color: var(--empty);
+}
+
+.box{
+    width: 4vw;
+    height: 7vh;
+    border: 2px solid var(--empty);
+    margin: 4px;
+    color: var(--text);
+    text-transform: uppercase;
+    display: grid;
+    place-items: center;
+    font-family: "Dinosaur Font";
+    font-size: clamp(3px,2.4rem,30px);
+    border-radius: 5px;
+}
+.box.empty{
+    background: var(--empty);
+}
+.box.wrong{
+    background: var(--wrong);
+}
+.box.right{
+    background: var(--right);
+}
+
+p.a{
+    word-spacing: 10px
+}
+
+.animated {
+    animation: 700ms linear flip;
+}
+
+.instructions {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid var(--text);
+    border-radius: 10px;
+    z-index: 10;
+    background-color: var(--default);
+    width: 500px;
+    max-width: 80%;
+    
+}
+
+.instructions.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.instructions-header{
+    font-family: "Dinosaur Font";
+    font-size: 2.5vw;
+    color: var(--text);
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--text);
+}
+
+.instructions-header.title{
+    font-weight: bold;
+}
+
+.instructions-body{
+    padding: 10px 15px;
+    font-family: "Trebuchet MS", sans-serif;
+    color: var(--text)
+}
+
+.close-text{
+    color: var(--right)
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active{
+    pointer-events: all;
+}
+
+#overlay1{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay1.active{
+    pointer-events: all;
+}
+
+#overlay2{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay2.active{
+    pointer-events: all;
+}
+
+#overlay3{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay3.active{
+    pointer-events: all;
+}
+
+.notification {
+    position: fixed;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    padding: 5px;
+    border: 1px solid var(--text);
+    border-radius: 10px;
+    font-size: clamp(5px, 2.4rem, 15px);
+    background: var(--text);
+    text-align: center;
+    color: var(--empty);
+    font-family: "Dinosaur Font";
+  }
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(90deg);
+    }
+    100% {
+        transform: rotateX(0deg);
+    }
+}

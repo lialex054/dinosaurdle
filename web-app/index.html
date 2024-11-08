@@ -1,0 +1,153 @@
+<!-- In HTML Comments are written like this -->
+<!-- They can all be removed for your apps -->
+<!doctype html> <!-- This first line tells browsers to expect modern standard html 5 -->
+<html lang="en-gb"> <!-- This is indicates the page is written in British English, useful for accessibility -->
+    <head>
+        <meta charset="utf-8"> <!-- This indicates how the file is encoded. utf-8 is standard -->
+        <title>Dinosaurdle</title> <!-- All pages need a title, this will be displayed in the browser's title bar -->
+        <link rel="stylesheet" href="default.css"> <!-- Import style sheet – default.css -->
+        <link rel="icon" href="./assets/favicon.png"> <!-- Import 'Favorites Icon' – favicon.png -->
+        <script type="module" src="main.js"></script> <!-- Load the main script. Must be type="module". Have only one of these -->
+    </head>
+    <body>
+        <p style="text-align:center;font-size-adjust: 2;">
+            <font ,="" face="Dinosaur font" color="C1F7DC"> 
+                DINOSAURDLE
+            </font>
+        </p>
+        <button class = "button API">
+            <a href = "../docs/index.html">API Document</a>
+        </button>
+        <button data-modal-target = "#instructions" class = "button instruction">Instructions</button>
+                <div class = "instructions" id = "instructions">
+                    <div class = "instructions-header">
+                        <div class = "title">How to play DINOSAURDLE</div>
+                        <button data-close-button class = "button close-button">&times;</button>
+                    </div>
+                    <div class = "instructions-body">
+                        Welcome to <font color="52a35e">DINOSAURDLE</font>! This is a Wordle like game which introduces time pressure where
+                        you have to get points faster than the DINOSAUR >:D . On your board, a <font color="52a35e">GREEN</font> square 
+                        indicates that the letter is correct and also in the correct place. A <font color="c89c44">YELLOW</font> square indicates 
+                        that your letter is in the wrong place. An empty PURPLE square means that your letter doesn't exist in the word. <br>
+                        As this is Wordle, you only get SIX tries for ONE word. If you run out of guesses, you instantly lose the game :O. <br>
+                        As you can see, the lower keyboard works and also lights up as well to show what letters you have guessed :D. <br>
+                        For every <font color="c89c44">YELLOW</font> box, you earn ONE point, and for every <font color="52a35e">GREEN</font> box, 
+                        you earn TWO points. Everytime you get a word, the score will be multiplied based upon how many tries you needed, then it will 
+                        get added to your score. The DINOSAUR will also get set back by 30 points each time. However, the DINOSAUR 
+                        gets more points every 0.5 seconds for each win you have. <br>
+                        First to 100 points win! Good luck out there and try your best to outrun the DINOSAUR in DINOSAURDLE!!!! <br>
+                        <font color = "c89c44">*click window to close*</font>
+                    </div>
+                    <div id = "overlay"></div>
+                </div>
+                <div class = "instructions" id = "win">
+                    <div class = "instructions-header">
+                        <div class = "title">YOU WON</div>
+                        <button data-close-button class = "button close-button">&times;</button>
+                    </div>
+                    <div class = "instructions-body">
+                        You won the game! Congratulations :DDDD <br>
+                        <font color = "c89c44">*click window to close*</font>
+                    </div>
+                    <div id = "overlay1"></div>
+                </div>
+                <div class = "instructions" id = "dino_win">
+                    <div class = "instructions-header">
+                        <div class = "title">YOU GOT EATEN >:D</div>
+                        <button data-close-button class = "button close-button">&times;</button>
+                    </div>
+                    <div class = "instructions-body">
+                        You were eaten by the dinosaur (oh no!), better luck next time! The word was
+                        <font color = "52a35e">
+                            <span id = "dino-placeholder">"{}"</span>
+                        </font>
+                        <br>
+                        <font color = "c89c44">*click window to close*</font>
+                    </div>
+                    <div id = "overlay2"></div>
+                </div>
+                <div class = "instructions" id = "lost">
+                    <div class = "instructions-header">
+                        <div class = "title">YOU LOST D:</div>
+                        <button data-close-button class = "button close-button">&times;</button>
+                    </div>
+                    <div class = "instructions-body">
+                        <p>
+                            You ran out of tries (oof). The word was 
+                            <font color = "52a35e">
+                                <span id = "word-placeholder">"{}".</span>
+                            </font>
+                            <br>
+                            Try again! <br>
+                            <font color = "c89c44">*click window to close*</font>
+                        </p>
+                    </div>
+                    <div id = "overlay3"></div>
+                </div>
+        <center>
+            <div class = "top-section">
+                <image src = "./assets/amongus.gif" class = "gifs amongus"></image>
+                <div class="text vertical">
+                    Player Score:
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id = "player"></div>
+                  </div>
+                <div id="game">
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id = "dinosaur"></div>
+                  </div>
+                  <div class = "text vertical">
+                    Dinosaur Score:
+                  </div>
+                  <image src = "./assets/dinosaur-dance.gif" class = "gifs"></image>
+            </div>
+        </center>
+        </div>
+        <center>
+            <div class="keyboard">
+                <div class="row">
+                    <center>
+                    <button class="button" id = "q">Q</button>
+                    <button class="button" id = "w">W</button>
+                    <button class="button" id = "e">E</button>
+                    <button class="button" id = "r">R</button>
+                    <button class="button" id = "t">T</button>
+                    <button class="button" id = "y">Y</button>
+                    <button class="button" id = "u">U</button>
+                    <button class="button" id = "i">I</button>
+                    <button class="button" id = "o">O</button>
+                    <button class="button" id = "p">P</button>
+                </center>
+                </div>
+                <div class="row">
+                    <center>
+                    <button class="button" id = "a">A</button>
+                    <button class="button" id = "s">S</button>
+                    <button class="button" id = "d">D</button>
+                    <button class="button" id = "f">F</button>
+                    <button class="button" id = "g">G</button>
+                    <button class="button" id = "h">H</button>
+                    <button class="button" id = "j">J</button>
+                    <button class="button" id = "k">K</button>
+                    <button class="button" id = "l">L</button>
+                </center>
+                </div>
+                <div class="row">
+                    <center>
+                    <button class="button med" id = "Enter">ENTER</button>
+                    <button class="button" id = "z">Z</button>
+                    <button class="button" id = "x">X</button>
+                    <button class="button" id = "c">C</button>
+                    <button class="button" id = "v">V</button>
+                    <button class="button" id = "b">B</button>
+                    <button class="button" id = "n">N</button>
+                    <button class="button" id = "m">M</button>
+                    <button class="button big" id = "Backspace">DEL</button>
+                </center>
+                </div>
+            </div>
+        </center>
+    </body>
+</html>
