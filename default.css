@@ -68,12 +68,14 @@ body{
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    height: 30vh;
+    height: auto;
+    padding: 10px;
 }
 
 .keyboard .row {
-    width: 100vw;
+    width: 100%;
     align-self: center;
+    margin-bottom: 5px;
 }
 
 .text{
@@ -98,11 +100,11 @@ button{
     background-color: var(--default);
     border: 2px solid var(--text);
     display: inline-block;
-    margin: .3rem;
-    font-size: clamp(1px,1.5vw,20px);
+    margin: 2px;
+    font-size: 16px;
     color: var(--text);
-    width: 3vw;
-    height: 7vh;
+    width: min(40px, 8vw);
+    height: 45px;
     border-radius: .5rem;
     font-weight: bold;
 }
@@ -137,13 +139,11 @@ button{
 }
 
 .button.big{
-    width: 7vw;
-    font-size: clamp(1px,2vw,20px);
+    width: min(60px, 12vw);
 }
 
 .button.med{
-    width: 8vw;
-    font-size: clamp(1px,2vw,20px);
+    width: min(70px, 14vw);
 }
 
 .button.wrong{
@@ -157,16 +157,16 @@ button{
 }
 
 .box{
-    width: 4vw;
-    height: 7vh;
+    width: min(45px, 8vw);
+    height: min(45px, 8vh);
     border: 2px solid var(--empty);
-    margin: 4px;
+    margin: 2px;
     color: var(--text);
     text-transform: uppercase;
     display: grid;
     place-items: center;
     font-family: "Dinosaur Font";
-    font-size: clamp(3px,2.4rem,30px);
+    font-size: 1.5rem;
     border-radius: 5px;
 }
 .box.empty{
@@ -318,5 +318,43 @@ p.a{
     }
     100% {
         transform: rotateX(0deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .top-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .progress-bar {
+        width: 80vw;
+        height: 20px;
+        flex-direction: row;
+    }
+
+    .progress {
+        width: 100%;
+        height: 20px;
+    }
+
+    #game {
+        width: 90%;
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .text {
+        font-size: 1rem;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .instructions {
+        width: 90%;
+    }
+
+    .instructions-header {
+        font-size: 1.2rem;
     }
 }
